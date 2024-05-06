@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0beta2 (2b71d25, 2019-12-03)" sodipodi:docname="left_menu-plastic-2.svg" xml:space="preserve" style="enable-background:new 0 0 48 48;" viewBox="0 0 48 48" y="0px" x="0px" id="Слой_1" version="1.1"><metadata id="metadata31"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata><defs id="defs29"/><sodipodi:namedview inkscape:current-layer="Слой_1" inkscape:window-maximized="1" inkscape:window-y="23" inkscape:window-x="0" inkscape:cy="24" inkscape:cx="24" inkscape:zoom="18.479167" showgrid="false" id="namedview27" inkscape:window-height="1035" inkscape:window-width="1920" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" inkscape:document-rotation="0" bordercolor="#666666" pagecolor="#ffffff"/>
+<style id="style10" type="text/css">
+	.st0{fill:none;stroke:#B2B6BC;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:#B2B6BC;}
+</style>
+<title id="title12">Left_menu</title>
+<g id="g22">
+	<g id="g16">
+		<rect id="rect14" height="2.8" width="30" className="st0" y="10.7" x="9"/>
+	</g>
+	<polyline id="polyline18" points="35.7,13.6 35.7,22.1 24,39.5 12.2,22.1 12.2,13.6  " className="st0"/>
+	<line id="line20" y2="21.9" x2="35.7" y1="21.9" x1="12.2" className="st0"/>
+</g>
+
+</svg>
