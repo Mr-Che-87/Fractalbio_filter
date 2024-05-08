@@ -169,7 +169,7 @@ export default function NakonechnikiObject(props) {
         </div>
         
         
-        {/*дроп-даун-допменю - РАСКРЫТЬ ПОТОМ!!!
+        {/*дроп-даун-допменю*/}
         <div className="fb-line-body v-catalogy">
             <div className="card-text text-style">
                 <div className="row">
@@ -263,7 +263,7 @@ export default function NakonechnikiObject(props) {
                     </div>
                 </div>
             </div>
-        </div> */}
+        </div> 
     </div>
     </>
     )

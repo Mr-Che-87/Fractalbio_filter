@@ -11,60 +11,82 @@ const mockNakonechniki = [
         subtitle: "(стерильный, свободный от ДНКаз и РНКаз)",
         quantity: 96,
         price: 509,
-        size: 10  // добавляем поле для  фильтрации
+        size: 10  // добавил доп-поле для  фильтрации
     },
     {
         title: "Наконечник до 10 мкл с низкой адгезией Law Retention в штативе",
         subtitle: "(нестерильный)",
         quantity: 96,
         price: 509,
-        size: 10  // добавляем поле для фильтрации
+        size: 10  // добавил доп-поле для  фильтрации
     },
     {
         title: "Наконечник до 20 мкл с фильтром в пакете",
         subtitle: "(нестерильный)",
         quantity: 1000,
         price: 509,
-        size: 20  // добавляем поле для  фильтрации
+        size: 20  // добавил доп-поле для  фильтрации
     },
     {
         title: "Наконечник до 100 мкл с фильтром в пакете",
         subtitle: "(нестерильный)",
         quantity: 1000,
         price: 509,
-        size: 100  // добавляем поле для  фильтрации
+        size: 100  // добавил доп-поле для  фильтрации
     },
     {
         title: "Наконечник до 200 мкл с фильтром в штативе, удлиненный",
         subtitle: "(стерильный, свободный от ДНКаз и РНКаз)",
         quantity: 1000,
         price: 509,
-        size: 200  // добавляем поле для  фильтрации
+        size: 200  // добавил доп-поле для  фильтрации
     }
 ];
 
 
 export default function Nakonechniki() {
     
-const currentFilters = useSelector((state) => state.toFilter.filters);
+const currentFilters = useSelector((state) => state.toFilter.filters);  //доступ к фильтрам из store (через useSelector)
+
 
 // Функция для фильтрации:
 const filterNakonechniki = (objects) => {
-    const { size } = currentFilters;
+    const { typeFil, sizeFil, quantityFil, стерильность } = currentFilters;  //деструктуризируем отдельные пункты фильтра
     
-    if (!Object.values(currentFilters).flat().some(value => value)) {
-        return objects;
-    } else {
-        // Фильтрация по полю "size":
-        return objects.filter(object => {
-            // Проверяем, если для данного размера выбран фильтр
-            const isSizeFiltered = size.length === 0 || size.some(selectedSize => selectedSize === object.size);
-            return isSizeFiltered;
-        });
+    const typeFilValues = Object.keys(typeFil).filter(key => typeFil[key]); //преобразуем объект "вид/typeFil" в массив строк
+    const regex = new RegExp(typeFilValues.join('|'), 'i'); //регулярное выражение для поиска словосочетания внутри title
+
+    // Если хотя бы один из фильтров не пустой, применяем фильтрацию:
+    if (sizeFil.length > 0 || quantityFil.length > 0 || typeFilValues.length > 0) {
+        return objects.filter((object) =>
+            (sizeFil.length === 0 || sizeFil.includes(object.size)) &&
+            (quantityFil.length === 0 || quantityFil.includes(object.quantity)) &&
+            (typeFilValues.length === 0 || regex.test(object.title))
+        );
     }
+    //Если все фильтры пустые, возвращаем все объекты:
+    return objects;
 };
-// Фильтруем объекты перед отображением
-const filteredObjects =  filterNakonechniki(mockNakonechniki);
+/*
+//СТАРОЕ: для числовых  size и quantity
+const filterNakonechniki = (objects) => {
+    const { sizeFil, quantityFil } = currentFilters;
+
+    //Фильтруем только если есть какие-то фильтры
+    if (sizeFil.length > 0 || quantityFil.length > 0) {
+        return objects.filter(object =>
+            (sizeFil.length === 0 || sizeFil.includes(object.size)) &&
+            (quantityFil.length === 0 || quantityFil.includes(object.quantity))
+        );
+    }
+
+    //Если нет фильтров, возвращаем все объекты:
+    return objects;
+};
+*/
+
+//коннектим функцию фильтрации с массивом объектов и оборачиваем это всё в переменную filteredObjects:
+const filteredObjects = filterNakonechniki(mockNakonechniki);
 
 
 
@@ -91,6 +113,10 @@ const filteredObjects =  filterNakonechniki(mockNakonechniki);
 
 
 
+
+
+
+
 //объект из админки https://fractalbio.com/admin/catalog/tree/:
 /*
 Undefined result for catalog::object() method.
@@ -105,13 +131,10 @@ Undefined result for catalog::object() method.
 
 
 /*
-//CТАРОЕ:
+//CТАРОЕ(без фильтрации):
 import '../../css/style-new.css'
 import NakonechnikiFilter from './NakonechnikiFilter';
 import NakonechnikiObject from './NakonechnikiObject';
-
-
-
 
 export default function Nakonechniki() {
     
