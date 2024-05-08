@@ -5,7 +5,7 @@ import PCR from "../../img/PCR.png";
 
 
 export default function NakonechnikiObject(props) {
-    const { title, subtitle, quantity, price } = props;
+    const { title, subtitle, quantity, price, size } = props;
 
     return (
     <>
@@ -168,7 +168,8 @@ export default function NakonechnikiObject(props) {
             <div className="fb-line-up"></div>
         </div>
         
-        {/*дроп-даун-допменю*/}
+        
+        {/*дроп-даун-допменю - РАСКРЫТЬ ПОТОМ!!!
         <div className="fb-line-body v-catalogy">
             <div className="card-text text-style">
                 <div className="row">
@@ -262,7 +263,7 @@ export default function NakonechnikiObject(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
     </div>
     </>
     )
