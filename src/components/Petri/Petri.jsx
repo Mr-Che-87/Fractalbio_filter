@@ -5,7 +5,8 @@ import PetriObject from './PetriObject'
 
 export default function Petri() {
     
-    return ( 
+    return (
+        // 
     <>
     <PetriFilter />
     {/*МАССИВ ОБЪЕКТОВ*/}
